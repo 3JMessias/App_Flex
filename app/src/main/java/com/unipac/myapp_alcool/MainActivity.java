@@ -26,14 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
         Double vlrAlcoll = Double.parseDouble(valorAlcool.getText().toString());
         Double vlrGasolina = Double.parseDouble(valorGasolina.getText().toString());
-        Double resultado;
+        final Double resultado;
 
         resultado = vlrAlcoll / vlrGasolina;
 
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Clicou no botão", Toast.LENGTH_LONG).show();
+                if(resultado <= 0.7){
+                    Toast.makeText(MainActivity.this, "Compensa o Alcool !", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Compensa a Gasolina !", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
